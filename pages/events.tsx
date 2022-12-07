@@ -34,6 +34,7 @@ export default function EventPage({ menus, events }: EventsPageProps) {
 export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<EventsPageProps>> {
+    console.log(`Generating/Regenerating the events`)
   const events = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     'node--event',
     context,
@@ -63,6 +64,6 @@ export async function getStaticProps(
       events,
       menus: await getMenus(context),
     },
-    revalidate: 60,
+    revalidate: 10,
   };
 }

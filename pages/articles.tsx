@@ -34,6 +34,7 @@ export default function ArticlePage({ menus, articles }: ArticlesPageProps) {
 export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<ArticlesPageProps>> {
+    console.log(`Generating/Regenerating the articles`)
   const articles = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     'node--article',
     context,
@@ -60,6 +61,6 @@ export async function getStaticProps(
       articles,
       menus: await getMenus(context),
     },
-    revalidate: 60,
+    revalidate: 10,
   };
 }

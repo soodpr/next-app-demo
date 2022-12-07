@@ -92,6 +92,7 @@ export default function IndexPage({ menus, events, places }: IndexPageProps) {
 export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<IndexPageProps>> {
+    console.log(`Generating/Regenerating the home page for list of events and places`)
   if (process.env.NODE_ENV == 'development') {
     await testApiCompatibility(ENTITY_TYPES, drupal);
   }
@@ -139,6 +140,6 @@ export async function getStaticProps(
       events,
       places,
     },
-    revalidate: 60,
+    revalidate: 10,
   };
 }

@@ -115,6 +115,7 @@ export async function getStaticPaths(
 export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<EntityPageProps>> {
+  console.log(`Generating/Regenerating the entities`)
   // Find a matching path from Drupal from context.
   const path = await drupal.translatePathFromContext(context);
 

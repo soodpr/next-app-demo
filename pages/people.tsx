@@ -34,6 +34,7 @@ export default function PeoplePage({ menus, people }: PeoplePageProps) {
 export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<PeoplePageProps>> {
+    console.log(`Generating/Regenerating the people`)
   const people = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     'node--person',
     context,

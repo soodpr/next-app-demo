@@ -34,6 +34,7 @@ export default function PlacesPage({ menus, places }: PlacesPageProps) {
 export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<PlacesPageProps>> {
+    console.log(`Generating/Regenerating the places`)
   const places = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     'node--place',
     context,
